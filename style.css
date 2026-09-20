@@ -1,0 +1,123 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #5b6570;
+  --line: #d8dee4;
+  --accent: #1f6feb;
+  --card: #f6f8fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #9198a1;
+    --line: #30363d;
+    --accent: #6ea8ff;
+    --card: #161b22;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', sans-serif;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px 64px;
+}
+
+header.site {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+}
+
+header.site .name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+header.site .tag {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 6px 0 0;
+}
+
+nav {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 14px;
+}
+
+nav a { color: var(--accent); text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+h1 { font-size: 26px; line-height: 1.5; margin: 0 0 8px; }
+h2 { font-size: 18px; margin: 36px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+h3 { font-size: 15px; margin: 22px 0 6px; }
+
+p, li { font-size: 15px; }
+ul { padding-left: 1.3em; }
+li { margin: 4px 0; }
+
+.updated { color: var(--muted); font-size: 13px; margin: 0 0 28px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+.card p:first-child { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 14px 0;
+  font-size: 14px;
+  display: block;
+  overflow-x: auto;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--card); font-weight: 600; white-space: nowrap; }
+
+code {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+a { color: var(--accent); }
+
+footer.site {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}

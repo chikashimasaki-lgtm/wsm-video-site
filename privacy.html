@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー — WSM 読み上げ動画化</title>
+<meta name="description" content="WSM 読み上げ動画化が Google ユーザーデータをどのように取得・利用・保存・削除するかを説明します。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <p class="name">WSM 読み上げ動画化</p>
+  <p class="tag">プライバシーポリシー</p>
+  <nav>
+    <a href="./">ホーム</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+  </nav>
+</header>
+
+<h1>プライバシーポリシー</h1>
+<p class="updated">最終更新: 2026年9月20日</p>
+
+<p>
+WSM 読み上げ動画化（以下「本アプリ」）は、運営者が個人で利用するために作成した非商用のツールです。
+本ポリシーは、本アプリが Google ユーザーデータをどのように取得・利用・保存・削除するかを説明します。
+</p>
+
+<div class="card">
+  <p><strong>要約</strong>：本アプリの利用者は運営者本人のみです。
+  本アプリは運営者自身のドキュメント・スプレッドシート・YouTube チャンネルだけを扱い、
+  取得したデータを第三者へ販売・提供・共有することは一切ありません。
+  広告配信や行動追跡も行いません。</p>
+</div>
+
+<h2>1. 運営者</h2>
+<ul>
+  <li>運営者: Chikashi Masaki（個人）</li>
+  <li>連絡先: <a href="mailto:chikashi.masaki@gmail.com">chikashi.masaki@gmail.com</a></li>
+</ul>
+
+<h2>2. 取得する情報</h2>
+<p>本アプリが取得するのは、運営者が Google アカウントで明示的に許可した範囲の次の情報だけです。</p>
+
+<table>
+  <tr><th>権限（スコープ）</th><th>取得・操作する内容</th><th>目的</th></tr>
+  <tr>
+    <td><code>https://www.googleapis.com/auth/documents.readonly</code></td>
+    <td>指定した Google ドキュメントの本文テキストと、そこに含まれるページ画像</td>
+    <td>読み上げ原稿と動画の映像を作るため（読み取りのみ・書き込みなし）</td>
+  </tr>
+  <tr>
+    <td><code>https://www.googleapis.com/auth/spreadsheets</code></td>
+    <td>待ち行列として使う Google スプレッドシートの読み書き</td>
+    <td>処理の状態・完成した動画のURL・エラー内容を記録するため</td>
+  </tr>
+  <tr>
+    <td><code>https://www.googleapis.com/auth/youtube.upload</code></td>
+    <td>YouTube チャンネルへの動画アップロード</td>
+    <td>完成した動画を非公開で保存するため</td>
+  </tr>
+  <tr>
+    <td><code>https://www.googleapis.com/auth/youtube.force-ssl</code></td>
+    <td>アップロードした動画への字幕登録</td>
+    <td>読み上げ内容に対応する字幕を付けるため</td>
+  </tr>
+</table>
+
+<p>
+本アプリは、氏名・住所・電話番号・支払い情報などの個人情報を、上記とは別に収集することはありません。
+Gmail、連絡先、カレンダー、Google ドライブ全体へのアクセス権は要求しません。
+</p>
+
+<h2>3. 情報の利用目的</h2>
+<p>取得した情報は、次の処理を実行する目的にのみ利用します。</p>
+<ul>
+  <li>ドキュメント本文から読み上げ用テキストを組み立てる</li>
+  <li>読み上げ音声を合成し、ページ画像と合成して動画ファイルを作る</li>
+  <li>目次情報から動画のチャプターと説明文を作る</li>
+  <li>動画と字幕を運営者自身の YouTube チャンネルへ非公開でアップロードする</li>
+  <li>処理の進捗・結果・失敗理由をスプレッドシートへ記録する</li>
+</ul>
+<p>
+これ以外の目的（広告、プロファイリング、機械学習モデルの学習、統計の外部提供など）には利用しません。
+</p>
+
+<h2>4. 第三者への提供</h2>
+<p>
+取得したデータを第三者へ販売・貸与・提供することはありません。
+処理の過程で、Google が提供する以下のサービスにデータが送信されますが、
+いずれも運営者自身の Google Cloud プロジェクト内で、上記の処理を実行する目的に限って利用されます。
+</p>
+<ul>
+  <li>Google Docs API / Google Sheets API（読み取り・記録）</li>
+  <li>Google Cloud Text-to-Speech（音声合成）</li>
+  <li>Vertex AI（目次からのチャプター生成）</li>
+  <li>YouTube Data API v3（アップロード・字幕登録）</li>
+  <li>Google Cloud Run / Cloud Logging（実行基盤と実行ログ）</li>
+</ul>
+<p>
+法令にもとづく開示請求があった場合を除き、これ以外への提供は行いません。
+</p>
+
+<h2>5. 保存と保護</h2>
+<ul>
+  <li>
+    Google アカウントのアクセストークンおよびリフレッシュトークンは、
+    運営者の Google Cloud プロジェクト内の <strong>Secret Manager</strong> に保管し、
+    実行時にのみジョブへ読み込みます。ソースコードや公開リポジトリには含めません。
+  </li>
+  <li>
+    ドキュメント本文・音声・動画などの中間ファイルは、処理を実行するコンテナ内の一時領域にのみ作られ、
+    <strong>ジョブの終了とともに破棄</strong>されます。永続的なデータベースには保存しません。
+  </li>
+  <li>
+    完成した動画は運営者自身の YouTube チャンネルに<strong>非公開</strong>として保存されます。
+    公開範囲の管理は YouTube 上で運営者が行います。
+  </li>
+  <li>
+    処理の記録（日時・ドキュメントID・状態・動画URL・エラー内容）は、
+    運営者自身の Google スプレッドシートに残ります。
+  </li>
+  <li>実行ログは Google Cloud Logging に保存され、同サービスの保持期間の経過後に削除されます。</li>
+</ul>
+
+<h2>6. データの削除とアクセス権の取り消し</h2>
+<p>本アプリに与えたアクセス権は、いつでも次の方法で取り消せます。</p>
+<ul>
+  <li>
+    <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google アカウントの「サードパーティ製アプリとサービス」</a>
+    から本アプリを削除する
+  </li>
+  <li>Secret Manager に保管したトークンを削除する</li>
+</ul>
+<p>
+取り消し後、本アプリは Google ユーザーデータへ一切アクセスできなくなります。
+すでにアップロードされた動画やスプレッドシートの記録は運営者自身の管理下にあるため、
+不要であれば YouTube およびスプレッドシート上で直接削除してください。
+削除のご依頼や確認は、上記の連絡先までご連絡ください。
+</p>
+
+<h2>7. Google API サービスユーザーデータポリシーの遵守</h2>
+<p>
+本アプリによる Google API から受け取った情報の利用と他アプリへの移転は、
+<a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API サービスのユーザーデータに関するポリシー</a>
+（Limited Use（限定的な使用）の要件を含む）に準拠します。
+</p>
+
+<h2>8. Cookie・アクセス解析</h2>
+<p>
+本ウェブサイトは静的なページのみで構成されており、Cookie の発行、アクセス解析、広告配信は行いません。
+</p>
+
+<h2>9. 本ポリシーの変更</h2>
+<p>
+本ポリシーを変更する場合は、本ページを更新し、冒頭の最終更新日を改めます。
+</p>
+
+<h2>10. お問い合わせ</h2>
+<p>
+本ポリシーに関するご質問は
+<a href="mailto:chikashi.masaki@gmail.com">chikashi.masaki@gmail.com</a>
+までお願いします。
+</p>
+
+<footer class="site">
+  <p>WSM 読み上げ動画化 — 個人利用のための非商用ツール</p>
+</footer>
+
+</div>
+</body>
+</html>

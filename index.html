@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WSM 読み上げ動画化</title>
+<meta name="description" content="Google ドキュメントを読み上げ動画に変換し、自分の YouTube チャンネルへ非公開でアップロードする個人用ツールです。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <p class="name">WSM 読み上げ動画化</p>
+  <p class="tag">Google ドキュメントを読み上げ動画にして、自分の YouTube チャンネルへ非公開でアップロードする個人用ツール</p>
+  <nav>
+    <a href="./">ホーム</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+  </nav>
+</header>
+
+<h1>このアプリについて</h1>
+<p class="updated">最終更新: 2026年9月20日</p>
+
+<p>
+WSM 読み上げ動画化は、運営者が個人で利用するために作った非商用のツールです。
+手元でスキャン・OCR した書籍や資料の Google ドキュメントを読み上げ音声つきの動画に変換し、
+運営者自身の YouTube チャンネルへ<strong>非公開（限定公開）</strong>でアップロードします。
+移動中などに「読む」代わりに「聞く」ための、個人的な用途を目的としています。
+</p>
+
+<div class="card">
+  <p><strong>一般公開のサービスではありません。</strong>
+  利用者は運営者本人ひとりだけで、アカウント登録の窓口や外部への提供はありません。
+  処理はすべて運営者自身の Google Cloud プロジェクト内で完結します。</p>
+</div>
+
+<h2>できること</h2>
+<ul>
+  <li>Google ドキュメントの本文を読み取り、読み上げ用のテキストに整形する</li>
+  <li>Google Cloud Text-to-Speech で読み上げ音声を合成する</li>
+  <li>ページ画像と音声を合成して動画ファイルを作る</li>
+  <li>できた動画を YouTube へ非公開でアップロードする</li>
+  <li>目次から YouTube のチャプターを作り、字幕（SRT）を登録する</li>
+  <li>処理の進捗と結果を Google スプレッドシートに記録する</li>
+</ul>
+
+<h2>動作のしくみ</h2>
+<p>
+変換したいドキュメントを Google スプレッドシートの待ち行列に登録すると、
+Google Cloud Run 上のジョブがそれを受け取り、読み取りから動画化、アップロードまでを一気に行います。
+処理は Google のサーバー上で動くため、手元の端末を起動しておく必要はありません。
+</p>
+
+<h2>アクセスする情報</h2>
+<p>このアプリが Google アカウントに求める権限は、次の4つだけです。用途は下表のとおりです。</p>
+
+<table>
+  <tr><th>権限（スコープ）</th><th>用途</th></tr>
+  <tr>
+    <td><code>documents.readonly</code></td>
+    <td>変換元の Google ドキュメントを<strong>読み取る</strong>（書き込みはしません）</td>
+  </tr>
+  <tr>
+    <td><code>spreadsheets</code></td>
+    <td>待ち行列のスプレッドシートに処理状況・動画URL・エラーを記録する</td>
+  </tr>
+  <tr>
+    <td><code>youtube.upload</code></td>
+    <td>できた動画を自分のチャンネルへ非公開でアップロードする</td>
+  </tr>
+  <tr>
+    <td><code>youtube.force-ssl</code></td>
+    <td>アップロードした動画に字幕を登録する</td>
+  </tr>
+</table>
+
+<p>
+これらは運営者自身のドキュメント・スプレッドシート・YouTube チャンネルに対してのみ使われます。
+扱いの詳細は<a href="privacy.html">プライバシーポリシー</a>をご覧ください。
+</p>
+
+<h2>使っている技術</h2>
+<ul>
+  <li>Google Cloud Run（ジョブ実行）</li>
+  <li>Google Docs API / Google Sheets API</li>
+  <li>Google Cloud Text-to-Speech（音声合成）</li>
+  <li>Vertex AI（目次からのチャプター生成）</li>
+  <li>YouTube Data API v3（アップロード・字幕登録）</li>
+  <li>ffmpeg（動画の合成）</li>
+</ul>
+
+<h2>お問い合わせ</h2>
+<p>
+このアプリについてのご連絡は
+<a href="mailto:chikashi.masaki@gmail.com">chikashi.masaki@gmail.com</a>
+までお願いします。
+</p>
+
+<footer class="site">
+  <p>WSM 読み上げ動画化 — 個人利用のための非商用ツール</p>
+</footer>
+
+</div>
+</body>
+</html>
