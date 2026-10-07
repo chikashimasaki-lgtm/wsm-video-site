@@ -1,6 +1,6 @@
 # wsm-video-site
 
-[WSM 読み上げ動画化](https://github.com/chikashimasaki-lgtm/wsm_tts_youtube)（private）の
+[wsm_tts_youtube](https://github.com/chikashimasaki-lgtm/wsm_tts_youtube)（private）の
 **公開用ページ**だけを置くリポジトリ。GitHub Pages で配信する。
 
 ## なぜ必要か
