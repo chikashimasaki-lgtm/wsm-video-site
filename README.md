@@ -1,7 +1,11 @@
-# wsm-video-site
+# wsm-video-site（OAuth 同意画面の公開ページ。アプリ名は「自動化ツール共通」）
 
 [wsm_tts_youtube](https://github.com/chikashimasaki-lgtm/wsm_tts_youtube)（private）の
-**公開用ページ**だけを置くリポジトリ。GitHub Pages で配信する。
+**公開用ページ**だけを置くリポジトリ。
+
+> 2026-10-07: アプリ名を「WSM 読み上げ動画化」から**共通の名前「自動化ツール共通」**に変更した。この OAuth アプリは WSM の動画化だけでなく、
+> 手元の GAS 操作（clasp）・Gmail の整理にも使う共通のものになったため。**GCP コンソールの同意画面のアプリ名も同じにすること**（API では変えられない）。
+> ページ本文は動画化の説明のまま（その他の用途の記述は未整備）。GitHub Pages で配信する。
 
 ## なぜ必要か
 
